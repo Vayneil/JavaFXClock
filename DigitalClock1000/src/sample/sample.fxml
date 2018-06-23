@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<GridPane fx:id="gridPane" alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="25.0" valignment="TOP" vgrow="ALWAYS" />
+      <RowConstraints percentHeight="50.0" />
+      <RowConstraints />
+   </rowConstraints>
+   <children>
+      <Canvas fx:id="timeCanvas" height="300.0" width="800.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+      <TableView fx:id="table" prefHeight="282.0" prefWidth="778.0" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS">
+        <columns>
+          <TableColumn fx:id="descriptionColumn" minWidth="-Infinity" prefWidth="600.0" resizable="false" text="Description" />
+          <TableColumn fx:id="alarmTimeColumn" minWidth="-1.0" prefWidth="200.0" text="Time" />
+        </columns>
+         <contextMenu>
+            <ContextMenu>
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#deleteAlarmEvent" text="Delete" />
+              </items>
+            </ContextMenu>
+         </contextMenu>
+      </TableView>
+      <MenuBar maxHeight="25.0" GridPane.halignment="LEFT" GridPane.valignment="TOP">
+        <menus>
+          <Menu mnemonicParsing="false" text="Program">
+            <items>
+              <MenuItem fx:id="closeProgram" mnemonicParsing="false" onAction="#closeProgramEvent" text="Zamknij" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Budzik">
+            <items>
+              <MenuItem fx:id="addControl" mnemonicParsing="false" onAction="#newAlarmHandler" text="Dodaj alarm" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="O autorze" />
+        </menus>
+      </MenuBar>
+   </children>
+</GridPane>
